@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>姓名案例_methods实现</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    性：<input type="text" v-model="firstName"><br>
+    名：<input type="text" v-model="lastName"><br>
+    姓名：<span>{{fullName()}}</span>
+  </div>
+</body>
+<script>
+  const vm=new Vue({
+    //一个vue实例的data只要变化就会把用到插值语法的地方（该id模板）重新更新数据和调用函数
+    el:'#root',
+    data:{
+      firstName:'张',//data数据发生改变就会重新解析模板，相当于重新调用了fullname
+      lastName:'三'
+    },
+    methods:{
+      fullName(){
+        //alert(1);
+        return this.firstName+this.lastName;
+      }
+    }
+  });
+</script>
+</html>

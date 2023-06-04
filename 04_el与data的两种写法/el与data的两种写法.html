@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>el与data的两种写法</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    <h1>你好，{{name}}</h1>
+  </div>
+
+
+  <script>
+  //el的两种写法
+  // const v=new Vue({
+  //     //el:'#root',//第一种写法
+  //     data:{
+  //       name:'尚硅5谷'
+  //     }
+  //   });
+  // console.log(v);
+  // v.$mount('#root');//第二种写法
+
+  //data的两种写法
+  const v=new Vue({
+    el:'#root',
+    //data第一种写法：对象式
+    // data:{
+    //   name:'ds'
+    // }
+    //第二种：函数式
+    data(){//不能写箭头函数，this必须指向Vue实例
+      console.log(this);//此处的this是Vue的实例对象
+      return{
+        name:'sgg'
+      };
+    }
+  });
+  console.log(v.data);
+  </script>
+</body>
+</html>
